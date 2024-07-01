@@ -1,0 +1,44 @@
+Disassembly of section .data:
+
+00000000 <.data>:
+   0:	24080000 	li	t0,0
+   4:	20090000 	addi	t1,zero,0
+   8:	200a0008 	addi	t2,zero,8
+   c:	21290001 	addi	t1,t1,1
+  10:	ad090000 	sw	t1,0(t0)
+  14:	21080004 	addi	t0,t0,4
+  18:	1549fffc 	bne	t2,t1,0xc
+  1c:	00000000 	nop
+  20:	20080000 	addi	t0,zero,0
+  24:	20090000 	addi	t1,zero,0
+  28:	240e0001 	li	t6,1
+  2c:	312b0001 	andi	t3,t1,0x1
+  30:	016e082a 	slt	at,t3,t6
+  34:	1420000a 	bnez	at,0x60
+  38:	00000000 	nop
+  3c:	200c000a 	addi	t4,zero,10
+  40:	8d0d0000 	lw	t5,0(t0)
+  44:	25ad0001 	addiu	t5,t5,1
+  48:	31ad5555 	andi	t5,t5,0x5555
+  4c:	01ac0018 	mult	t5,t4
+  50:	00006812 	mflo	t5
+  54:	ad0d0000 	sw	t5,0(t0)
+  58:	10000009 	b	0x80
+  5c:	00000000 	nop
+  60:	200c0002 	addi	t4,zero,2
+  64:	8d0d0000 	lw	t5,0(t0)
+  68:	018d0018 	mult	t4,t5
+  6c:	00006812 	mflo	t5
+  70:	21adffff 	addi	t5,t5,-1
+  74:	000d6c00 	sll	t5,t5,0x10
+  78:	000d6c02 	srl	t5,t5,0x10
+  7c:	ad0d0000 	sw	t5,0(t0)
+  80:	21080004 	addi	t0,t0,4
+  84:	21290001 	addi	t1,t1,1
+  88:	1549ffe8 	bne	t2,t1,0x2c
+  8c:	00000000 	nop
+  90:	240e007b 	li	t6,123
+  94:	15a00002 	bnez	t5,0xa0
+  98:	01cd001b 	divu	zero,t6,t5
+  9c:	0007000d 	break	0x7
+  a0:	00007012 	mflo	t6

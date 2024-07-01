@@ -1,4 +1,4 @@
-`include "define.vh"
+`include "defines.v"
 module inst_memory #(
     parameter IROM_SPACE = 4096 
 )(

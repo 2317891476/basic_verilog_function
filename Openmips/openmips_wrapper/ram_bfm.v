@@ -25,7 +25,7 @@ module ram_bfm
         parameter   DATA_WHITH  = 32            ,
         parameter   DATA_SIZE   = 8             ,
         parameter   ADDR_WHITH  = 30            ,
-        parameter   RAM_DEPTH   = 53248    ,
+        parameter   RAM_DEPTH   = 64*8    ,
         parameter   DATA_BYTE = DATA_WHITH/DATA_SIZE
     )
     (
@@ -41,7 +41,7 @@ module ram_bfm
 );
 
 
-(*ram_style = "block"*)  reg [DATA_SIZE-1:0] mem    [0:53248] ;
+(*ram_style = "block"*)  reg [DATA_SIZE-1:0] mem    [0:64*8] ;
 
 
 //=================================================================================
@@ -65,10 +65,10 @@ generate
             if(cs && we[i])
             begin
                 mem[addr+i] <= wdata[(DATA_SIZE*i)+:DATA_SIZE];
-                if(addr+i==30'h0000d000)
-                begin
-                    $display("%c", mem[30'h0000d000]);
-                end
+                // if(addr+i==30'h0000d000)
+                // begin
+                //     $display("%c", mem[30'h0000d000]);
+                // end
             end
         end
     end
@@ -77,7 +77,7 @@ endgenerate
 
 `ifndef SYNTHESIS
 initial begin
-    $readmemh("E:\\Xilinx11\\VLSI-session\\RTL-code\\Openmips\\openmips_wrapper\\test_program_spt.hex", mem);
+    $readmemh("E:\\Xilinx11\\VLSI-session\\RTL-code\\Openmips\\openmips_wrapper\\test_program.hex", mem);
 end
 
 

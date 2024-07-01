@@ -1,4 +1,4 @@
-`include "define.vh"
+`include "defines.v"
 module data_memory #(
     //parameter RAM_SPACE = 1073741824
     parameter RAM_SPACE = 4194304

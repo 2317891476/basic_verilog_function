@@ -33,7 +33,7 @@ inst_memory i_mem(
     .inst_addr(i_mem_addr),
     .inst_o(i_mem_data)
 );
-// 修改“openmips”为自己的处理器模块名
+// 淇敼鈥渙penmips鈥濅负鑷繁鐨勫鐞嗗櫒妯″潡鍚?
 openmips dut(
     .rst(rst),
     .clk(clk),
@@ -46,17 +46,13 @@ openmips dut(
     .ram_data_o(d_mem_wdata),
     .ram_ce_o(d_mem_r_en),
     .ram_data_i(d_mem_rdata)
-    // 以下为选做内容，实现异常时启用
+    // 浠ヤ笅涓洪?夊仛鍐呭锛屽疄鐜板紓甯告椂鍚敤
     //,.int_i(int_i),
     //.timer_int_o(timer_int)
 );
 
 
-initial	begin
-        $dumpfile("wave.vcd");
-        $dumpvars(0, tb);
-        //$dumpall();
-end
+
 
 initial begin
     clk = 1'b0;
@@ -75,7 +71,7 @@ initial begin
     #5
     int_i = 6'b0;
     #5
-    #15000
+    #150000
     $finish();
 end
 
